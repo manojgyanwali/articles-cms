@@ -1,32 +1,25 @@
-<!-- how to run articles-cms project -->
+# articles-cms
 
-Clone project
-Create and copy  the .env file in laravel project
-make sure docker is install and running
-Open your terminal and go to project articles-cms/docker (where docker-compose.yml is located):
-
-run docker-compose up -d --build
-run docker ps
-you should see container running:
-php_app (for php/Laravel)
-mysql (for Database)
-nginx (for web server)
-frontend (for React)
-
-then, run  docker exec -it php_app bash (now you are inside container)
-
-
+git clone <your-repo-url>
+cd articles-cms
+copy env file in larvel project
+cd articles-cms/docker now you are in docker.yml file
 run this command:
-composer install       # Install PHP dependencies
+docker-compose up -d --build 
+
+run this to enter in docker container(now you are in docker container)
+docker exec -it php_app bash 
+composer install
 php artisan key:generate
-php artisan migrate    # Run database migrations
-php artisan db:seed    # Seed database if needed(password for user is "password")
+php artisan migrate
+php artisan db:seed 
 
 
-you will ready to use :Frontend (React with vite using default Docker port 5173): http://localhost:5173
+now run the react /vite project in 
+http://localhost:5173
 
 
-<!-- this is my .env file in laravel project copy this in .env file: -->
+<!-- here is my full .env file copy it in laravel project -->
 
 
 APP_NAME=Laravel
@@ -98,5 +91,3 @@ AWS_USE_PATH_STYLE_ENDPOINT=false
 VITE_APP_NAME="${APP_NAME}"
 
 JWT_SECRET=8dUXXf2aLx9LC8hY6gRNmJUHfBRoCAxr8pQWovqOw36pto6XzFXT6OQnpaPWq6qy
-
-
